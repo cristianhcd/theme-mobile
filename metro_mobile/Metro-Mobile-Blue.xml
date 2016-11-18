@@ -1,0 +1,1906 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<style name="Metro Mobile Blue" vbversion="4.2.2" product="vbulletin" type="custom">
+	<templategroup name="BB Code Layout">
+		<template name="bbcode_video" templatetype="template" date="1364984296" username="admin" version="4.2.1"><![CDATA[<vb:if condition="$provider == 'hulu'">
+<div class="video">
+	<object class="restrain" type="application/x-shockwave-flash" width="512" height="296" data="http://www.hulu.com/embed/{vb:raw code}">
+		<param name="movie" value="http://www.hulu.com/embed/{vb:raw code}" />
+		<param name="wmode" value="{vb:raw wmode}" />
+		<!--[if IE 6]>
+		<embed width="512" height="296" type="application/x-shockwave-flash" src="http://www.hulu.com/embed/{vb:raw code}" />
+		<![endif]--></object>
+</div>
+<vb:elseif condition="$provider == 'youtube'" />
+<div class="video">
+	<iframe class="restrain" title="YouTube video player" width="640" height="390" src="//www.youtube.com/embed/{vb:raw code}?wmode={vb:raw wmode}" frameborder="0"></iframe>
+</div>
+<vb:elseif condition="$provider == 'youtube_share'" />
+<div class="video">
+	<iframe class="restrain" title="YouTube video player" width="640" height="390" src="//www.youtube.com/embed/{vb:raw code}?wmode={vb:raw wmode}" frameborder="0"></iframe>
+</div>
+<vb:elseif condition="$provider == 'vimeo'" />
+<div class="video">
+	<object class="restrain" type="application/x-shockwave-flash" width="640" height="360" data="//vimeo.com/moogaloop.swf?clip_id={vb:raw code}">
+		<param name="movie" value="//vimeo.com/moogaloop.swf?clip_id={vb:raw code}" />
+		<param name="wmode" value="{vb:raw wmode}" />
+		<!--[if IE 6]>
+		<embed width="640" height="360" type="application/x-shockwave-flash" src="//vimeo.com/moogaloop.swf?clip_id={vb:raw code}" />
+		<![endif]--></object>
+</div>
+<vb:elseif condition="$provider == 'dailymotion'" />
+<div class="video">
+	<object class="restrain" type="application/x-shockwave-flash" width="420" height="339" data="http://www.dailymotion.com/swf/{vb:raw code}">
+		<param name="movie" value="http://www.dailymotion.com/swf/{vb:raw code}" />
+		<param name="wmode" value="{vb:raw wmode}" />
+		<!--[if IE 6]>
+		<embed width="420" height="339" type="application/x-shockwave-flash" src="http://www.dailymotion.com/swf/{vb:raw code}" />
+		<![endif]--></object>
+</div>
+<vb:elseif condition="$provider == 'metacafe'" />
+<div class="video">
+	<object class="restrain" type="application/x-shockwave-flash" width="400" height="345" data="http://www.metacafe.com/fplayer/{vb:raw code}.swf">
+		<param name="movie" value="http://www.metacafe.com/fplayer/{vb:raw code}.swf" />
+		<param name="wmode" value="{vb:raw wmode}" />
+		<!--[if IE 6]>
+		<embed width="400" height="345" type="application/x-shockwave-flash" src="http://www.metacafe.com/fplayer/{vb:raw code}.swf" />
+		<![endif]--></object>
+</div>
+<vb:elseif condition="$provider == 'google'" />
+<div class="video">
+	<object class="restrain" type="application/x-shockwave-flash" width="400" height="326" data="http://video.google.com/googleplayer.swf?docid={vb:raw code}">
+		<param name="movie" value="http://video.google.com/googleplayer.swf?docid={vb:raw code}" />
+		<param name="wmode" value="{vb:raw wmode}" />
+		<!--[if IE 6]>
+		<embed width="400" height="326" type="application/x-shockwave-flash" src="http://video.google.com/googleplayer.swf?docid={vb:raw code}" />
+		<![endif]--></object>
+</div>
+<vb:elseif condition="$provider == 'facebook'" />
+<div class="video">
+	<object class="restrain" type="application/x-shockwave-flash" width="576" height="432" data="//www.facebook.com/v/{vb:raw code}">
+		<param name="movie" value="//www.facebook.com/v/{vb:raw code}" />
+		<param name="wmode" value="{vb:raw wmode}" />
+		<!--[if IE 6]>
+		<embed width="576" height="432" type="application/x-shockwave-flash" src="//www.facebook.com/v/{vb:raw code}" />
+		<![endif]--></object>
+</div>
+</vb:if>]]></template>
+	</templategroup>
+	<templategroup name="Forum Home">
+		<template name="forumhome_forumbit_level1_post" templatetype="template" date="1359790203" username="admin" version="4.2.1"><![CDATA[<vb:if condition="THIS_SCRIPT != 'forumdisplay'">
+	<li data-role="list-divider">
+		&nbsp;
+	</li>
+</vb:if>
+<li id="forum{vb:raw forum.forumid}" class="forumbit_post L1">
+	<img src="{vb:stylevar imgdir_statusicon}/{vb:raw forum.imageprefix}forum_{vb:raw forum.statusicon}-48.png" class="forumicon ui-li-icon" id="forum_statusicon_{vb:raw forum.forumid}" alt="" />
+	<h3><a href="{vb:link forum, {vb:raw forum}}"<vb:if condition="$forum['statusicon'] == 'link'"> rel="external"</vb:if>>{vb:raw forum.title}</a></h3>
+	<vb:if condition="$show['forumdescription']"><p>{vb:raw forum.description}</p></vb:if>
+	<span class="ui-li-count">{vb:raw forum.threadcount}</span>
+</li>
+<vb:if condition="$show['subforums']">
+	{vb:raw forum.subforums}
+</vb:if>
+<vb:if condition="$childforumbits">
+	{vb:raw childforumbits}
+</vb:if>]]></template>
+		<template name="forumhome_forumbit_level2_post" templatetype="template" date="1359790217" username="admin" version="4.2.1"><![CDATA[<li class="forumbit_post L2">
+	<img src="{vb:stylevar imgdir_statusicon}/{vb:raw forum.imageprefix}forum_{vb:raw forum.statusicon}-48.png" class="forumicon ui-li-icon" id="forum_statusicon_{vb:raw forum.forumid}" alt="" />
+	<h3><a href="{vb:link forum, {vb:raw forum}}"<vb:if condition="$forum['statusicon'] == 'link'"> rel="external"</vb:if>>{vb:raw forum.title}</a></h3>
+	<vb:if condition="$show['forumdescription']"><p>{vb:raw forum.description}</p></vb:if>
+	<span class="ui-li-count">{vb:raw forum.threadcount}</span>
+</li>
+<vb:if condition="$show['subforums']">
+	{vb:raw forum.subforums}
+</vb:if>
+<vb:if condition="$childforumbits">
+	{vb:raw childforumbits}
+</vb:if>]]></template>
+		<template name="forumhome_subforums" templatetype="template" date="1359790232" username="admin" version="4.2.1"><![CDATA[<vb:each from="subforums" value="row">
+	<li class="subforum">
+		<vb:if condition="$row['canpost']">
+			<img src="{vb:stylevar imgdir_statusicon}/{vb:raw row.imageprefix}forum_{vb:raw row.statusicon}-48.png" class="forumicon ui-li-icon" id="forum_statusicon_{vb:raw row.forumid}" alt="" /> 
+		<vb:else />
+			<img class="forumicon ui-li-icon" src="{vb:stylevar imgdir_statusicon}/subforum_{vb:raw row.statusicon}.png" alt="" border="0" id="forum_statusicon_{vb:raw row.forumid}" /> 
+		</vb:if>
+		<h3><a href="{vb:link forum, {vb:raw row}}"<vb:if condition="$row['statusicon'] == 'link'"> rel="external"</vb:if>>{vb:raw row.title}</a></h3>
+		<span class="ui-li-count">{vb:raw row.threadcount}</span>
+	</li>
+</vb:each>]]></template>
+	</templategroup>
+	<templategroup name="Ungrouped Templates {1}">
+		<template name="footer" templatetype="template" date="1360412758" username="admin" version="4.2.1"><![CDATA[<div id="footer">
+
+<ul id="footer_links">
+<vb:if condition="$show['forgetpassword']">
+	<li class="first"><a href="login.php?{vb:raw session.sessionurl}do=lostpw" rel="external">{vb:rawphrase forgot_your_password}</a></li>
+<vb:else />
+	<vb:if condition="$show['member']">
+		<li class="first"><a href="login.php?{vb:raw session.sessionurl}do=logout&amp;logouthash={vb:raw bbuserinfo.logouthash}">{vb:rawphrase log_out}</a></li>
+	<vb:else />
+		<li class="first"><a href="mobile.php?{vb:raw session.sessionurl}do=login">{vb:rawphrase log_in}</a></li>
+	</vb:if>
+</vb:if>
+<vb:if condition="$show['registerbutton']">
+	<li><a href="register.php{vb:raw session.sessionurl_q}" rel="external">{vb:rawphrase register}</a></li>
+</vb:if>
+	<vb:if condition="$show['quickchooser']">
+		<li<vb:if condition="$show['forgetpassword']"> class="last"</vb:if>><a href="{vb:raw vboptions.forumhome}/?styleid={vb:raw vboptions.styleid}" class="fullsitelink" rel="external">{vb:rawphrase full_site}</a></li>
+	</vb:if>
+<vb:if condition="!$show['forgetpassword']">
+	<li class="last"><a href="#top" class="scrolltop" rel="external">{vb:rawphrase top}</a></li>
+</vb:if>
+</ul>
+
+<div id="footer_copyright" class="shade footer_copyright">
+	<!-- Do not remove this copyright notice -->
+	{vb:rawphrase powered_by_vbulletin}
+	<!-- Do not remove this copyright notice -->	
+</div>
+<div id="footer_morecopyright" class="shade footer_morecopyright">
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	{vb:raw cronimage}
+	<!-- Do not remove cronimage or your scheduled tasks will cease to function -->
+	{vb:raw vboptions.copyrighttext}
+</div>
+<div id="pixelgoose-copyright">
+	vBulletin Metro Mobile Theme<br />by <a title="Premium vBulletin Themes" href="http://pixelgoose.com/">PixelGoose Studio</a>
+</div>
+
+</div>
+
+<vb:if condition="$vboptions['enablefacebookconnect']">
+	{vb:raw facebook_footer}
+</vb:if>
+
+</div><!-- data-role="page" -->]]></template>
+		<template name="headinclude" templatetype="template" date="1364984771" username="admin" version="4.2.1"><![CDATA[<meta charset="{vb:stylevar charset}" />
+<meta id="e_vb_meta_bburl" name="vb_meta_bburl" content="{vb:raw vboptions.bburl}" />
+<base href="{vb:raw basepath}" />
+<meta name="generator" content="vBulletin {vb:raw vboptions.templateversion}" />
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+
+<vb:if condition="$show['threadinfo']">
+
+<vb:elseif condition="$show['foruminfo']" />
+		<meta name="keywords" content="{vb:raw foruminfo.title_clean}, {vb:raw vboptions.keywords}" />
+		<meta name="description" content="<vb:if condition="$pagenumber > 1">{vb:rawphrase page_x, {vb:raw pagenumber}}-</vb:if>{vb:raw foruminfo.description_clean}" />
+<vb:else />
+		<meta name="keywords" content="{vb:raw vboptions.keywords}" />
+		<meta name="description" content="{vb:raw vboptions.description}" />
+</vb:if>
+
+<vb:if condition="$show['fb_opengraph']">
+	{vb:raw facebook_opengraph}
+</vb:if>
+
+<vb:if condition="$show['remotejquery']">
+	<script type="text/javascript" src="{vb:stylevar jquerymain}"></script>
+</vb:if>
+<script type="text/javascript">
+<!--
+	if (typeof jQuery === 'undefined') // Load jQuery Local
+	{
+		document.write('<script type="text/javascript" src="clientscript/jquery/jquery-{vb:stylevar jqueryversion}.min.js"><\/script>');
+		var remotejquery = false;
+	}
+	else	// Load Rest of jquery remotely (where possible)
+	{
+		var remotejquery = true;	
+	}
+	var SESSIONURL = "{vb:raw session.sessionurl_js}";
+	var SECURITYTOKEN = "{vb:raw bbuserinfo.securitytoken}";
+	var IMGDIR_MISC = "{vb:stylevar imgdir_misc}";
+	var IMGDIR_BUTTON = "{vb:stylevar imgdir_button}";
+	var IMGDIR_MOBILE = "{vb:stylevar imgdir_mobile}";
+	var vb_disable_ajax = parseInt("{vb:raw vboptions.disable_ajax}", 10);
+	var SIMPLEVERSION = "{vb:raw vboptions.simpleversion}";
+	var BBURL = "{vb:raw vboptions.bburl}";
+	var LOGGEDIN = {vb:raw bbuserinfo.userid} > 0 ? true : false;
+	var THIS_SCRIPT = "{vb:raw this_script}";
+	var RELPATH = "{vb:raw relpath}";
+	var USER_STYLEID = "<vb:if condition="$bbuserinfo['realstyleid']">{vb:raw bbuserinfo.realstyleid}<vb:else />{vb:raw vboptions.styleid}</vb:if>";
+	var MOBILE_STYLEID = "{vb:raw vboptions.mobilestyleid_basic}";
+	var MOBILE_STYLEID_ADV = "{vb:raw vboptions.mobilestyleid_advanced}";
+	var USER_DEFAULT_STYLE_TYPE = "{vb:raw user_default_style_type}";
+// -->
+</script>
+<script type="text/javascript" src="{vb:raw vboptions.bburl}/clientscript/vbulletin-mobile-init.js?v={vb:raw vboptions.simpleversion}"></script>
+<script type="text/javascript" src="{vb:raw vboptions.bburl}/clientscript/jquery/jquery.mobile-1.0.vb.js?v={vb:raw vboptions.simpleversion}"></script>
+<script type="text/javascript" src="{vb:raw vboptions.bburl}/clientscript/vbulletin-mobile.js?v={vb:raw vboptions.simpleversion}"></script>
+
+{vb:raw template_hook.headinclude_javascript}
+
+<vb:if condition="$vboptions['externalrss']">
+	<link rel="alternate" type="application/rss+xml" title="{vb:raw vboptions.bbtitle} {vb:rawphrase rss_feed}" href="{vb:raw vboptions.bburl}/external.php?type=RSS2" />
+	<vb:if condition="$show['foruminfo'] OR $show['threadinfo']">
+		<link rel="alternate" type="application/rss+xml" title="{vb:raw vboptions.bbtitle} - {vb:raw foruminfo.title_clean} - {vb:rawphrase rss_feed}" href="{vb:raw vboptions.bburl}/external.php?type=RSS2&amp;forumids={vb:raw foruminfo.forumid}" />
+	</vb:if>
+</vb:if>
+
+<link rel="stylesheet" href="clientscript/jquery/jquery.mobile-1.0.min.css?v={vb:raw vboptions.simpleversion}" />
+
+<vb:if condition="$vboptions['storecssasfile']">
+	{vb:cssfile main-rollup.css}
+        {vb:raw template_hook.custom_css_links}
+<vb:else />
+	{vb:cssfile bbcode.css,editor.css,popupmenu.css,reset-fonts.css,vbulletin.css,vbulletin-chrome.css,vbulletin-formcontrols.css{vb:raw template_hook.custom_css_list}}
+</vb:if>
+
+{vb:raw template_hook.headinclude_css}
+
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+	<!-- Metro Mobile Theme from PixelGoose.com v.1.0.2 -->
+]]></template>
+		<template name="vbulletin-chrome.css" templatetype="template" date="1364984360" username="admin" version="4.2.1"><![CDATA[.video {
+	position: relative !important;
+	padding-bottom: 56.25% !important; /* 16:9 */
+	padding-top: 25px !important;
+	height: 0 !important;
+}
+.video iframe,
+.video object {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}]]></template>
+		<template name="vbulletin.css" templatetype="template" date="1360412707" username="admin" version="4.2.1"><![CDATA[.ui-bar, .ui-body {
+	padding: 0.4em 10px;
+}
+.ui-body.ui-field-contain {
+	padding: 0.4em 0;
+}
+input.ui-input-text, textarea.ui-input-text {
+	width: 95%;
+}
+.ui-body-d, .ui-dialog.ui-overlay-d {
+	border-color: #E4E4E4;
+}
+#page-aboutme {
+	border: none;
+}
+
+.ui-btn-active {
+	background-color: #F2F2F2;
+	color: #444;
+	background-image: none;
+}
+.ui-btn-active a.ui-link-inherit {
+	color: #444;
+}
+
+/* fonts */
+.ui-body-d, .ui-body-d button {
+	font-family: 'Open Sans',sans-serif;
+}
+.ui-bar-b, .ui-bar-b button {
+	font-family: 'Open Sans',sans-serif;
+}
+.ui-btn-up-d, .ui-btn-hover-d, .ui-btn-down-d {
+	font-family: 'Open Sans',sans-serif;
+	border-color: #E4E4E4;
+}
+.ui-btn-up-c, .ui-btn-hover-c, .ui-btn-down-c {
+	font-family: 'Open Sans',sans-serif;
+}
+.ui-bar-c, .ui-bar-c button {
+	font-family: 'Open Sans',sans-serif;
+}
+.ui-btn-up-a, .ui-btn-hover-a, .ui-btn-down-a {
+	font-family: 'Open Sans',sans-serif;
+}
+.ui-body-c, .ui-body-c button {
+	font-family: 'Open Sans',sans-serif;
+}
+.ui-btn-up-e, .ui-btn-hover-e, .ui-btn-down-e {
+	font-family: 'Open Sans',sans-serif;
+}
+.ui-bar-d, .ui-bar-d button {
+	font-family: 'Open Sans',sans-serif;
+}
+.ui-body-a, .ui-body-a button {
+	font-family: 'Open Sans',sans-serif;
+}
+ul.forumbits .ui-li-heading {
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+ul.forumbits .ui-li-desc {
+    /*letter-spacing: -0.03em;
+    text-transform: uppercase;
+    white-space: normal;*/
+}
+
+
+.ui-mobile-viewport {
+	-webkit-tap-highlight-color: rgba(0,0,0,0.2);
+}
+
+.ui-li > .ui-btn-inner {
+	min-height: 40px;
+	padding-left: 32px;
+}
+
+.ui-li.ui-li-has-thumb > .ui-btn-inner {
+	padding-left: 100px;
+}
+
+.ui-li-has-thumb .ui-btn-inner a.ui-link-inherit, .ui-li-static.ui-li-has-thumb {
+	min-height: 0;
+	padding-left: 100px;
+}
+
+.ui-li .ui-btn-inner a.ui-link-inherit {
+	padding: .7em 5px 0em 0;
+	display: inline-block;
+	vertical-align: text-bottom;
+}
+
+.ui-li {
+	padding: 10px;
+}
+
+.ui-li h3 {
+	margin: 0;
+}
+
+.ui-li-desc {
+	margin: 0;
+	text-transform: none;
+}
+
+.ui-li-heading {
+	min-height: 40px;
+}
+
+.ui-li-divider .ui-li-heading {
+	min-height: 0;
+}
+
+.ui-li .ui-btn-text {
+	position: static;
+}
+
+/* Common button icons */
+.ui-icon.ui-icon-close {
+	background-image: url({vb:stylevar imgdir_mobile}/close.png);
+	-webkit-background-size: 18px 18px;
+}
+
+/* Common CSS */
+.ui-loader {
+	width: 150px;
+	padding: 10px 15px;
+	margin-left: -90px; 
+}
+
+#header {
+	padding: 5px;
+	height: 41px;
+	background-color: #43A6DF;
+}
+
+#header-left {
+	float: left;
+}
+
+#header-right {
+	float: right;
+}
+
+#footer {
+	padding: 10px;
+	font-size: 12px;
+	text-align: center;
+}
+
+ul#footer_links {
+	margin: 0;
+	padding: 10px 0;
+	list-style-type: none;
+}
+
+ul#footer_links li {
+	display: inline;
+	margin: 0;
+}
+
+ul#footer_links li a {
+	font-size: 16px;
+	padding: 0 5px;
+	text-decoration: none;
+	border-right: 1px solid #E4E4E4;
+}
+
+ul#footer_links li.last a {
+	border-right: none;
+}
+
+a.notifications_total {
+	margin: 6px 5px;
+	vertical-align: middle;
+}
+
+a.notifications_total span.ui-btn-inner {
+	padding: 0.1em 10px;
+}
+
+.mockupimg {
+	display:inline-block;
+	vertical-align: middle;
+	position: relative;
+	padding: 0;
+	margin: 10px 5px;
+	background-color: #BFCDDB;
+}
+
+.articlecomments span.tags {
+	display:block;
+}
+.commalist {
+	margin: 0;
+	padding: 0;
+	display:inline;
+}
+.commalist li {
+	display:inline;
+}
+
+.mockupimg span {
+	display: block;
+	height: 100%;
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+	padding: 0.1em 0;
+	text-align: center;
+	height: 20px;
+}
+
+a.headericon {
+	display:inline-block;
+	vertical-align: middle;
+	position: relative;
+	padding: 0;
+	margin: 6px 5px 0 5px;
+}
+a.headericon img {
+	overflow: hidden;
+	position: relative;
+	text-align: center;
+}
+
+#pagetitle {
+	padding: 5px;
+	cursor: pointer;
+}
+#pagetitle p {
+	font-size: 12px;
+	margin: 0;
+}
+#pagetitle p a.ui-link {
+	color: white;
+}
+#pagetitle img.backbutton {
+	float: left;
+	margin-top: 3px;
+}
+.breadcrumb {
+	display: none;
+	position: absolute;
+	width: 100%;
+	z-index: 5;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 60px rgba(0, 0, 0, 0.06) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+}
+.breadcrumboverlay {
+	display: none;
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	z-index: 3;
+	-moz-opacity: 0.8;
+	opacity:.60;
+	filter: alpha(opacity=80);
+}
+
+h1.pagetitle {
+	font-size: 16px;
+	display: block;
+	margin: 5px 15px;
+	padding: 0 5px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	outline: 0 !important;
+}
+
+h3.ui-bar {
+	margin-left: -15px;
+	margin-right: -15px;
+	/*margin-top: -1px;*/
+}
+
+.ui-checkbox .ui-btn-inner,
+.ui-radio .ui-btn-inner,
+.ui-listbox-list .ui-li .ui-btn-text {
+	white-space: normal;
+}
+
+.hidden {
+	display : none;
+}
+
+.min-width-480px .ui-controlgroup-controls input.ui-input-text,
+.min-width-480px .ui-controlgroup-controls textarea.ui-input-text,
+.min-width-480px .ui-controlgroup-controls .ui-input-search,
+.min-width-480px .ui-controlgroup-controls .ui-select
+{
+	width: 100%;
+}
+
+/* Inline mod */
+.modbuttongroup .ui-btn-icon-notext {
+	/*height: 39px;*/
+	width: auto;
+	padding: 0;
+}
+.modbuttongroup .ui-btn {
+	vertical-align: middle;
+	height: 39px;
+}
+.modbuttongroup .ui-btn-inner {
+	height: auto;
+}
+.modbuttongroup .ui-btn-icon-notext .ui-btn-inner {
+	padding: 0.5em;
+}
+.ui-checkbox.inlinemodcheckboxradio {
+	display: none;
+}
+.pmlist .ui-checkbox.inlinemodcheckboxradio {
+	display: block;
+}
+
+.inlinemodbuttons {
+	display: none;
+}
+
+/* Hide debug html div */
+#debuginfo
+{
+	display : none;
+}
+
+/* collapsible for vB */
+.ui-collapsible-heading {
+	margin: 0 -15px;
+}
+.ui-collapsible-heading .ui-corner-all {
+	-moz-border-radius: 0;
+	-webkit-border-radius: 0;
+	border-radius: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+}
+.ui-collapsible-heading a span.ui-btn {
+	left: auto;
+	right: 6px;
+}
+.ui-collapsible-heading a span.ui-btn .ui-icon-plus {
+	background-position: -216px 0;
+}
+.ui-collapsible-heading a span.ui-btn .ui-icon-minus {
+	background-position: -180px 0;
+}
+.ui-collapsible-content {
+	padding-left: 0;
+}
+.ui-collapsible-content .ui-listview {
+	margin: -11px -15px 0 -15px;
+}
+
+/* Listview checkbox/radio */
+div.ui-li-checkboxradio {
+	border-top-width: 0;
+}
+.ui-li-checkboxradio .ui-checkbox,
+.ui-li-checkboxradio .ui-radio,
+.ui-li-checkboxradio .ui-checkbox label {
+	position: absolute;
+	width: 38px;
+	height: 100%;
+	border-width: 0;
+	border-right-width: 1px;
+	top: 0;
+	left: 0;
+	margin: 0;
+	padding: 0;
+}
+.ui-li-checkboxradio .ui-checkbox .ui-btn-icon-left .ui-btn-inner,
+.ui-li-checkboxradio .ui-radio .ui-btn-icon-left .ui-btn-inner {
+	padding: 0;
+	height: 100%;
+}
+/* checkboxes top and left */
+.ui-li-checkboxradio .ui-checkbox .ui-btn-icon-left .ui-icon,
+.ui-li-checkboxradio .ui-radio .ui-btn-icon-left .ui-icon {
+	/*top: 1.5em;*/
+}
+.ui-checkbox .ui-btn-icon-left .ui-icon, .ui-radio .ui-btn-icon-left .ui-icon {
+	left: 6px;
+}
+
+/* Forumhome */
+.forumicon {
+	margin-top: 0;
+}
+
+.subforum .ui-btn-inner {
+	margin-left: 16px;
+}
+
+ul.forumbits .ui-li-desc,
+ul.forumbits .ui-li-heading {
+	white-space: normal;
+}
+
+ul.forumbits .ui-btn-inner {
+	padding-right: 60px;
+}
+
+ul.forumbits .ui-li .ui-btn-text a.ui-link-inherit {
+	white-space: normal;
+}
+
+
+/* Forumdisplay */
+ul.announcements .ui-li > .ui-btn-inner {
+	padding-left: 10px;
+}
+ul.announcements .ui-li .ui-btn-text {
+	padding-right: 30px;
+}
+ul.announcements .ui-li .ui-btn-text a.ui-link-inherit {
+	display: inline;
+}
+#threadlist {
+	padding-top: 15px;
+}
+#threadlist ul {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+#threadlist .ui-li .ui-btn-text a.ui-link-inherit {
+	white-space: normal;
+}
+
+#threadlist .deleted.ui-btn-up-c,
+#threadlist .deleted.ui-btn-hover-c {
+	background-color: #ddd;
+	background-image: -moz-linear-gradient(top, #dddddd, #cccccc);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #dddddd),color-stop(1, #cccccc));
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#dddddd', EndColorStr='#cccccc')";
+}
+.threadbit .threadstatus {
+	background-image: url({vb:stylevar imgdir_statusicon}/thread_old-30.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+	height: 37px;
+	width: 37px;
+	float: left;
+	/*margin-top: 6px;*/
+}
+.threadbit.dot .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_dot-30-{vb:stylevar right}.png); }
+.threadbit.dot.hot .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_dot_hot-30-{vb:stylevar right}.png); }
+.threadbit.dot.hot.lock .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_dot_hot_lock-30-{vb:stylevar right}.png); }
+.threadbit.dot.hot.lock.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_dot_hot_lock_new-30-{vb:stylevar right}.png); }
+.threadbit.dot.hot.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_dot_hot_new-30-{vb:stylevar right}.png); }
+.threadbit.dot.lock .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_dot_lock-30-{vb:stylevar right}.png); }
+.threadbit.dot.lock.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_dot_lock_new-30-{vb:stylevar right}.png); }
+.threadbit.dot.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_dot_new-30-{vb:stylevar right}.png); }
+.threadbit.hot .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_hot-30.png); }
+.threadbit.hot.lock .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_hot_lock-30.png); }
+.threadbit.hot.lock.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_hot_lock_new-30.png); }
+.threadbit.hot.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_hot_new-30.png); }
+.threadbit.lock .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_lock-30.png); }
+.threadbit.lock.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_lock_new-30.png); }
+.threadbit.moved .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_moved-30.png); }
+.threadbit.moved.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_moved_new-30.png); }
+.new .threadstatus { background-image: url({vb:stylevar imgdir_statusicon}/thread_new-30.png); }
+
+ul.stickies .ui-btn-text,
+ul.threads .ui-btn-text {
+	padding-right: 70px;
+}
+ul.stickies .deleted .ui-btn-text,
+ul.threads .deleted .ui-btn-text {
+	padding-right: 30px;
+}
+
+ul.stickies .ui-li-heading,
+ul.threads .ui-li-heading {
+	white-space: normal;
+	font-weight: normal;
+}
+ul.stickies .ui-li-heading a.unread,
+ul.threads .ui-li-heading a.unread {
+	font-weight: bold;
+}
+
+/* Pagenav */
+div.pagenav {
+	margin: 5px -15px 0;
+	height: 44px;
+	position: relative;
+}
+div.pagenav .ui-btn {
+	margin: 0;
+}
+div.pagenav .ui-vbpagenav-first {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 34px;
+	width: 32px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+div.pagenav .ui-vbpagenav-last {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 34px;
+	width: 32px;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+div.pagenav .ui-vbpagenav-first .ui-icon,
+div.pagenav .ui-vbpagenav-last .ui-icon
+{
+	margin-top: 2px;
+}
+div.pagenav .ui-vbpagenav-pagenumbers {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: -10px;
+	height: 34px;
+	overflow: hidden;
+}
+div.pagenav .ui-vbpagenav-pagenumber {
+	width: 34px;
+}
+div.pagenav .ui-vbpagenav-pagenumber.ui-btn-icon-notext {
+	text-indent: 0;
+	height: 34px;
+}
+div.pagenav .ui-vbpagenav-pagenumber.ui-btn-icon-notext .ui-btn-text {
+	position: static;
+	line-height: 30px;
+}
+div.pagenav .ui-btn-up-e {
+	background-color: #2E3539 !important;
+	color: #FFF;
+}
+
+
+/* Showthread */
+ol#posts {
+	list-style-type: none;
+	margin: 5px -15px;
+	padding: 0;
+	border-bottom: 1px solid #E4E4E4;
+}
+ol#posts li {
+	margin: 0;
+	padding: 0;
+}
+ol#posts li div.posthead {
+	height: 44px;
+	padding: 5px 10px;
+	position: relative;
+}
+ol#posts li div.posthead span.xsaid {
+	display: block;
+	font-weight: bold;
+	margin-top: 3px;
+}
+ol#posts li div.posthead span.postdate {
+	display: block;
+	color: #3E3E3E;
+	text-shadow: none;
+}
+ol#posts li div.posthead a.postuseravatarlink {
+	display: block;
+	padding: 0 5px 0 0;
+	height: 44px;
+	line-height: 44px;
+	position: relative;
+	float: left;
+}
+ol#posts li div.posthead a.postuseravatarlink p {
+	position: static;
+	top: 50%;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+}
+ol#posts li div.posthead a.postuseravatarlink img {
+	max-height: 44px;
+	max-width: 44px;
+}
+ol#posts li div.postbody {
+	padding: 10px;
+}
+ol#posts li div.postbody h2.posttitle {
+	margin: 0.2em 0;
+	font-size: 18px;
+}
+ol#posts li div.postbody blockquote.postcontent {
+	margin: 0.2em 0;
+}
+blockquote img,
+div.attachments img {
+	max-width: 100%;
+}
+ol#posts li div.postbody blockquote.lastedited {
+	color: #B3B3B3;
+	font-size: 12px;
+}
+ol#posts li div.postbody blockquote.signature {
+	width: 90%;
+	margin: 5px 0;
+	padding: 5px;
+	overflow: hidden;
+	border-top: 1px dotted #ccc;
+	font-size: 12px;
+}
+div.postfoot {
+	padding: 5px;
+	height: 20px;
+}
+div.postfoot a {
+	display: inline-block;
+	width: 20px;
+	text-decoration: none;
+	line-height: 20px;
+}
+.postbitlegacy .postfoot  .postcontrols, .postbit .postfoot  .postcontrols {
+	float:{vb:stylevar right};
+	padding-{vb:stylevar right}:{vb:stylevar padding};
+	text-align:{vb:stylevar right};
+	width:60%;
+}
+.postbitlegacy .postfoot img.spam, .postbit .postfoot img.spam  {
+	padding-top: 2px;
+}
+.postbitlegacy .postfoot img.moderated, .postbit .postfoot img.moderated, .postbitlegacy .postfoot img.spam, .postbit .postfoot img.spam, .postbitlegacy .postfoot img.deleted_nolink, .postbit .postfoot img.deleted_nolink  {
+	padding-top: 2px;
+}
+.postbitlegacy .postfoot a.editpost, .postbit .postfoot a.editpost, .eventbit .eventfoot a.editevent  {
+	background: url({vb:stylevar imgdir_button}/edit_40b.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.quickreply, .postbit .postfoot a.quickreply, .postbitlegacy .postfoot a.forwardpost, .postbit .postfoot a.forwardpost  {
+	background: url({vb:stylevar imgdir_button}/reply_40b.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.newreply, .postbit .postfoot a.newreply  {
+	background: url({vb:stylevar imgdir_button}/quote_40b.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.multiquote, .postbit .postfoot a.multiquote  {
+	background: url({vb:stylevar imgdir_button}/multiquote-back_40b.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.promotecms, .postbit .postfoot a.promotecms  {
+	background: url({vb:stylevar imgdir_cms}/promote_small.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.infraction, .postbit .postfoot a.infraction  {
+	background: url({vb:stylevar imgdir_button}/add-infraction_sm.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.report, .postbit .postfoot a.report  {
+	background: url({vb:stylevar imgdir_button}/report-40b.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.blog, .postbit .postfoot a.blog  {
+	background: url({vb:stylevar imgdir_misc}/blog/blogpost_40b.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.reputation, .postbit .postfoot a.reputation  {
+	background: url({vb:stylevar imgdir_button}/reputation-40b.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.ip, .postbit .postfoot a.ip  {
+	background: url({vb:stylevar imgdir_button}/ip-40b.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.redcard, .postbit .postfoot a.redcard  {
+	background: url({vb:stylevar imgdir_button}/red-card_sm.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.yellowcard, .postbit .postfoot a.yellowcard  {
+	background: url({vb:stylevar imgdir_button}/yellow-card_sm.png) no-repeat center;
+}
+.postbitlegacy .postfoot a.deleted, .postbit .postfoot a.deleted  {
+	background: url({vb:stylevar imgdir_button}/deleted_sm.png) no-repeat center;
+}
+#qr_defaultcontainer {
+	display: none;
+}
+.min-width-480px .quickreply textarea.ui-input-text {
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+/* bbcode_quote */
+div.quote_container {
+	padding: 8px;
+	margin-bottom: 5px;
+}
+
+/* Human verification */
+div.imageregcontainer, div.questioncontainer {
+	display: inline-block;
+	width: 100%;
+}
+div.imageregcontainer p.description, div.questioncontainer p.description {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.min-width-480px div.imageregcontainer,
+.min-width-480px div.questioncontainer {
+	width: 60%;
+}
+.min-width-480px div.imageregcontainer input.ui-input-text,
+.min-width-480px div.questioncontainer input.ui-input-text {
+	width: 100%;
+	display: block;
+}
+div.imageregcontainer .hidden {
+	display: none;
+}
+span#refresh_imagereg {
+	display: inline-block;
+}
+#recaptcha_block {
+	display: inline-block;
+}
+
+/* modifyprofile_birthday */
+div.datecontainer {
+	display: inline-block;
+	vertical-align: top;
+	width: 100%;
+}
+.min-width-480px div.imageregcontainer {
+	width: 60%;
+}
+
+/* MEMBERINFO */
+#memberinfoheader {
+	overflow: hidden;
+	width: 100%;
+}
+#memberinfoheader #avatar {
+	width: 30%;
+	max-width: 120px;
+	padding-right: 5px;
+	text-align: center;
+	float: left;
+}
+#memberinfoheader #avatar a {
+	text-decoration: none;
+}
+#memberinfoheader #avatar img {
+	max-width: 100%;
+	max-height: 200px;
+}
+#memberinfoheader #userinfo .member_username {
+	font-size: 20px;
+	font-weight: bold;
+}
+#memberinfoheader h3 {
+	margin-top: 5px;
+}
+#memberinfonav {
+	clear:both;
+	margin-left: -15px;
+	margin-right: -16px;
+}
+div.tabbody {
+	margin: -1px -15px 0;
+}
+div.tabbody.hidden {
+	display: none;
+}
+#page-aboutme li .ui-btn-inner {
+	padding-left: 0;
+	white-space: normal;
+}
+#page-aboutme .ui-li-static.ui-li {
+	padding: .7em 15px;
+	background-color: #FFFFFF;
+}
+#page-aboutme li .ui-btn-text {
+	overflow: hidden;
+	padding-right: 40px;
+	font-size: 14px;
+}
+#page-aboutme .ui-li {
+	padding-left: 15px;
+}
+#page-aboutme .ui-link-inherit {
+	white-space: normal;
+}
+#page-aboutme span.name {
+	color: #C66;
+	padding-right: 10px;
+}
+#page-aboutme span.value {
+	width: 100%;
+	display: inline-block;
+	overflow: hidden;
+	font-weight: normal;
+	text-transform: none;
+}
+.ui-content #page-more .ui-listview,
+.ui-content #page-friends .ui-listview {
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+#page-aboutme, #page-more {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+.vm div.postfoot a {
+	width: auto;
+}
+
+/* Grid menu */
+.gridmenu {
+	width: 100%;
+	margin-top: 20px;
+}
+.gridmenu .iconcontainer {
+	overflow: hidden;
+	margin: 0 auto;
+	text-align: center;
+	padding: 10px;
+}
+.gridmenu .iconcontainer a.ui-link {
+	overflow: hidden;
+	display: block;
+	text-overflow: ellipsis;
+}
+a.gridmenuicon {
+	display: block;
+}
+.searchbar {
+	width: 100%;
+}
+.searchbar .ui-btn {
+	margin: 0;
+}
+.searchbar .buttoncontainer {
+	float: right;
+	width: 110px;
+}
+.searchbar .textboxcontainer {
+	margin-right: 130px;
+	padding-top: 1px;
+}
+.searchbar input,
+.min-width-480px .searchbar input.ui-input-text {
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+}
+
+/* Album */
+.ui-content .ui-listview.albumbits {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+ul.albumbits .ui-li-heading {
+	white-space: normal;
+}
+ol.thumbnails {
+	padding:0;
+	padding-left: 4px;
+	margin: 0 -15px;
+}
+ol.thumbnails li {
+	border: 1px solid #CEDFEB;
+	float: left;
+	margin: 1px;
+	text-align: center;
+	list-style: none outside none;
+}
+ol.thumbnails li a.picture {
+	display: block;
+    height: 70px;
+    padding: 2px;
+    width: 70px;
+}
+ol.thumbnails li a.picture img {
+	max-width: 70px;
+	max-height: 70px;
+}
+.belowthumbnails {
+	clear:both;
+}
+.min-width-480px ol.thumbnails {
+	padding-left: 2px;
+}
+.min-width-480px ol.thumbnails li {
+	margin: 3px;
+}
+.min-width-480px ol.thumbnails li a.picture {
+    height: 120px;
+    width: 120px;
+}
+.min-width-480px ol.thumbnails li a.picture img {
+	max-width: 120px;
+	max-height: 120px;
+}
+.picturecontainer {
+	text-align: center;
+}
+.picturecontainer img {
+	max-width: 100%;
+}
+.pictureinfo {
+	text-align: center;
+}
+
+/* PM */
+#pmnav {
+	margin-left: -15px;
+	margin-right: -16px;
+}
+.ui-content .ui-listview.pmlist,
+.ui-content .ui-listview.pmfolderlist {
+	margin: -15px;
+	margin-top: -1px;
+	margin-bottom: -1px;
+}
+#page-folders {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+ul.pmlist .ui-li-heading {
+	white-space: normal;
+	font-weight: normal;
+}
+ul.pmlist .ui-li-heading a.unread {
+	font-weight: bold;
+}
+ul.pmlist .ui-btn-inner {
+	padding-right: 60px;
+}
+ul.pmlist .ui-li .ui-btn-text a.ui-link-inherit {
+	white-space: normal;
+}
+
+/* Notices */
+.notices ol {
+	padding: 0;
+	list-style-type: none;
+	margin: 0;
+}
+.notices ol li {
+	line-height: 24px;
+}
+.notices ol li a.dismiss {
+	margin: 0;
+	float: right;
+}
+
+/* Facebook */
+.fbregbox {
+	padding: 10px 0;
+}
+
+/* Blog */
+#blognav {
+	clear:both;
+	margin-left: -15px;
+	margin-right: -16px;
+}
+
+ol.bloglist {
+	list-style-type: none;
+	margin: 5px -15px;
+	padding: 0;
+	border-bottom: 1px solid #E4E4E4;
+}
+ol.bloglist li {
+	margin: 0;
+	padding: 0;
+}
+ol.bloglist li div.posthead {
+	padding: 5px;
+}
+ol.bloglist li div.posthead h3.entrytitle {
+	display: block;
+	font-weight: bold;
+	margin-top: 3px;
+	margin: 0;
+}
+ol.bloglist li div.posthead span.postdate {
+	display: block;
+	color: #B3B3B3;
+	font-size: 12px;
+}
+ol.bloglist li div.posthead a.postuseravatarlink {
+	display: block;
+	padding: 0 5px 0 0;
+	height: 44px;
+	line-height: 44px;
+	position: relative;
+	float: left;
+}
+ol.bloglist li div.posthead a.postuseravatarlink p {
+	position: static;
+	top: 50%;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+}
+ol.bloglist li div.posthead a.postuseravatarlink img {
+	max-height: 44px;
+	max-width: 44px;
+}
+ol.bloglist li div.postbody {
+	padding: 10px;
+}
+ol.bloglist li div.postbody h2.posttitle {
+	margin: 0.2em 0;
+	font-size: 18px;
+}
+ol.bloglist li div.postbody blockquote.postcontent {
+	margin: 0.2em 0;
+}
+ol.bloglist li div.postbody blockquote.postcontent img,
+ol.bloglist li div.postbody div.attachments img,
+ol.bloglist li div.postbody blockquote.signature img {
+	max-width: 100%;
+}
+ol.bloglist li div.postbody blockquote.signature {
+	width: 90%;
+	margin: 5px 0;
+	padding: 5px;
+	overflow: hidden;
+	border-top: 1px dotted #ccc;
+	font-size: 12px;
+}
+ol.bloglist li div.postbody blockquote.blogmeta {
+	color: #B3B3B3;
+	font-size: 12px;
+}
+ol.bloglist li div.postbody blockquote.blogmeta p {
+	margin: 2px;
+}
+ol.bloglist li div.blogfoot {
+	padding: 5px;
+	height: 20px;
+}
+ol.bloglist li div.blogfoot div.blog_comments_count {
+	float: left;
+}
+ol.bloglist li div.blogfoot div.continuereading {
+	text-align: right;
+}
+ol.bloglist li.draft {
+	background-color: #EBFFD8;
+}
+	
+.sidebar_container {
+	display: none;
+}
+
+a.blogcategorylink {
+	display: none;
+	float: right;
+}
+
+.categories .ui-listview, .cmssections .ui-listview {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.categories .ui-li > .ui-btn-inner,
+.navbar .ui-li > .ui-btn-inner,
+.notifications .ui-li > .ui-btn-inner,
+.cmssections .ui-li > .ui-btn-inner {
+	padding-left: 10px;
+}
+
+/* Blog entry page */
+.blogentrytitle {
+	margin: 0;
+	padding: 5px;
+}
+
+.blogentrybody {
+	margin: 0 -15px;
+}
+
+.blogentrybody blockquote.blogcontent {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.blogentrycomments {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 3px;
+}
+
+.blogentrybody blockquote .lastedited {
+	color: #707070;
+	font-size: 12px;
+}
+
+/* CMS */
+.vbcms_content {
+	display: none;
+}
+ol.articlelist {
+	list-style-type: none;
+	margin: 0 -15px;
+	padding: 0;
+	border-bottom: 1px solid #B3B3B3;
+}
+ol.articlelist li {
+	margin: 0;
+	padding: 0;
+}
+ol.articlelist li div.posthead {
+	padding: 5px;
+}
+ol.articlelist li div.posthead h3.entrytitle {
+	display: block;
+	font-weight: bold;
+	margin-top: 3px;
+	margin: 0;
+}
+ol.articlelist li div.posthead span.postdate {
+	display: block;
+	color: #B3B3B3;
+	font-size: 12px;
+}
+ol.articlelist li div.posthead a.postuseravatarlink {
+	display: block;
+	padding: 0 5px 0 0;
+	height: 44px;
+	line-height: 44px;
+	position: relative;
+	float: left;
+}
+ol.articlelist li div.posthead a.postuseravatarlink p {
+	position: static;
+	top: 50%;
+	vertical-align: middle;
+	margin: 0;
+	padding: 0;
+}
+ol.articlelist li div.posthead a.postuseravatarlink img {
+	max-height: 44px;
+	max-width: 44px;
+}
+ol.articlelist li div.postbody {
+	padding: 10px;
+}
+ol.articlelist li div.postbody h2.posttitle {
+	margin: 0.2em 0;
+	font-size: 18px;
+}
+ol.articlelist li div.postbody blockquote.postcontent {
+	margin: 0.2em 0;
+}
+ol.articlelist li div.postbody blockquote.postcontent img,
+ol.articlelist li div.postbody div.attachments img,
+ol.articlelist li div.postbody blockquote.signature img {
+	max-width: 100%;
+}
+ol.articlelist li div.postbody blockquote.signature {
+	width: 90%;
+	margin: 5px 0;
+	padding: 5px;
+	overflow: hidden;
+	border-top: 1px dotted #ccc;
+	font-size: 12px;
+}
+ol.articlelist li div.postbody blockquote.blogmeta {
+	color: #B3B3B3;
+	font-size: 12px;
+}
+ol.articlelist li div.postbody blockquote.blogmeta p {
+	margin: 2px;
+}
+ol.articlelist li div.blogfoot {
+	padding: 5px;
+	height: 20px;
+	background-color: #FFF;
+}
+ol.articlelist li div.blogfoot div.comments_count {
+	float: left;
+}
+ol.articlelist li div.blogfoot div.continuereading {
+	text-align: right;
+}
+a.cmscategorylink, a.cmssectionlink {
+	display: none;
+}
+.content_container, .cmssections, .categories {
+	clear: both;
+}
+/* CMS article page */
+.articletitle {
+	margin: 0;
+	padding: 5px;
+}
+
+.articlebody {
+	margin: 0 -15px;
+}
+
+.articlebody blockquote.articlecontent {
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.articlecomments {
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 3px;
+}
+
+.articletitle, .article_username_container, .articlecomments {
+	padding: 5px 10px;
+}
+/* Advanced Search */
+#searchnav {
+	margin: 10px -15px;
+}
+#searchnav .label {
+	float: left;
+	font-weight: bold;
+	line-height: 45px;
+	padding: 0 10px;
+	border-bottom: 1px solid #CCC;
+}
+.threadinfo.blogentry .threadstatus {
+	background-image:url({vb:stylevar imgdir_searchresults}/search_results_blog.png);
+}
+.threadinfo.article .threadstatus {
+	background-image:url({vb:stylevar imgdir_searchresults}/search_results_CMS.png);
+}
+.threadinfo.forum .threadstatus {
+	background-image:url({vb:stylevar imgdir_searchresults}/search_results_forum.png);
+}
+
+/* BBCode Code */
+.bbcode_code {
+	overflow: scroll;
+	border: 1px dotted #B3B3B3;
+	height: 60px;
+}
+
+/* Metro Mobile CSS */
+.ui-body-d {
+	background-color: #f6f6f6;
+	background-image: none;
+}
+.ui-bar-b {
+	background-color: #2E3539;
+	background-image: none;
+	border: none;
+}
+.ui-btn-corner-all {
+	border-radius: 0;
+	-webkit-border-radius: 0;
+}
+.ui-icon {
+	height: 24px !important;
+	width: 24px !important;
+	-moz-background-size: auto !important;
+	-o-background-size: auto !important;
+	-webkit-background-size: auto !important;
+	background-size: auto !important;
+
+}
+.ui-icon, .ui-icon-searchfield:after {
+    background-image: url({vb:stylevar imgdir_mobile}/metro-icons-24.png);
+    border-radius: 0;
+    background-color: transparent;
+}
+.ui-icon-plus {background-position:-0 50%}
+.ui-icon-minus {background-position:-28px 50%}
+.ui-icon-delete {background-position:-56px 50%}
+.ui-icon-arrow-r {background-position:-84px 50%}
+.ui-icon-arrow-l {background-position:-112px 50%}
+.ui-icon-arrow-u {background-position:-140px 50%}
+.ui-icon-arrow-d {background-position:-168px 50%}
+.ui-icon-check {background-position:-196px 50%}
+.ui-icon-gear {background-position:-224px 50%}
+.ui-icon-refresh {background-position:-252px 50%}
+.ui-icon-forward {background-position:-280px 50%}
+.ui-icon-back {background-position:-308px 50%}
+.ui-icon-grid {background-position:-336px 50%}
+.ui-icon-star {background-position:-364px 50%}
+.ui-icon-alert {background-position:-392px 50%}
+.ui-icon-info {background-position:-420px 50%}
+.ui-icon-home {background-position:-448px 50%}
+.ui-icon-search,.ui-icon-searchfield:after {background-position:-476px 50%}
+.ui-icon-checkbox-off {background-position:-554px 50%}
+.ui-icon-checkbox-on {background-position: -530px 50%;}
+.ui-icon-radio-on {background-position: -577px 50%;}
+.ui-icon-radio-off {background-position: -601px 50%;}
+
+.ui-btn-icon-left .ui-icon, .ui-btn-icon-right .ui-icon {
+    margin-top: -12px;
+    position: absolute;
+    top: 50%;
+}
+.ui-btn-icon-left .ui-icon {
+    left: 10px;
+}
+.ui-icon-shadow {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0);
+}
+
+.ui-btn-icon-left .ui-btn-inner {
+    padding-left: 40px;
+}
+
+.ui-li-has-count .ui-li-count {
+    background-color: #43A6DF !important;
+    background-image: none;
+    border: medium none;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: inherit;
+    right: 40px;
+    text-shadow: none;
+    top: 50%;
+}
+.ui-btn-up-d {
+    border-top: 1px solid #e4e4e4;
+}
+.ui-btn-up-d.splitlink, .ui-btn-hover-d.splitlink {
+    border-top: none;
+}
+
+.ui-btn-hover-d	{
+	border-top:1px solid #e4e4e4;
+	background:#f2f2f2;
+	font-weight:bold;
+	text-shadow: transparent;
+	background-image: none;
+}
+.ui-corner-left,
+.ui-corner-right {
+	border-radius: 0;
+}
+.ui-listview .ui-li-icon {
+	left: -10px;
+	top: 0.7em;
+}
+.ui-li:last-child, .ui-li.ui-field-contain:last-child {
+	border-bottom-color: #E4E4E4;
+}
+
+.ui-corner-all {
+	border-radius: 0;
+}
+.ui-shadow-inset {
+	box-shadow: none;
+}
+.ui-shadow {
+	box-shadow: none;
+}
+input.ui-input-text {
+	background-color: #FFFFFF;
+}
+input.ui-input-text.ui-focus {
+	border-color: #666666;
+}
+
+.ui-btn-hidden {
+	background-color: #43A6DF;
+}
+.ui-btn-up-c {
+	color: #FFFFFF;
+	text-shadow: none;
+	background-color: #43A6DF;
+	background-image: none;
+	border: none;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.ui-btn-hover-c {
+	color: #FFFFFF;
+	text-shadow: none;
+	background-color: #2E3539;
+	background-image: none;
+	border: none;
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.ui-btn-inner {
+	padding: 0.5em 25px;
+}
+
+.ui-body-c, .ui-dialog.ui-overlay-c {
+	background-image: none;
+	border: none;
+	text-shadow: none;
+	background-color: transparent;
+}
+.gridmenu .iconcontainer {
+	background-color: #43A6DF;
+	border: solid 3px #F6F6F6;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+.gridmenu .iconcontainer:hover {
+	background-color: #2E3539;
+}
+.gridmenu .iconcontainer a, .gridmenu .iconcontainer a:visited, .gridmenu .iconcontainer a:hover {
+	color: #FFFFFF;
+	text-decoration: none;
+	font-weight: normal;
+}
+.ui-body-a, .ui-dialog.ui-overlay-a {
+	background-color: #43A6DF;
+	text-shadow: none;
+	background-image: none;
+}
+.ui-corner-bottom, .ui-corner-top {
+	border-radius: 0;
+}
+.modbuttongroup .ui-btn-inline,
+.modbuttongroup div.ui-btn-icon-notext,
+.ui-btn-hidden {
+	border: solid 1px #CCCCCC !important;
+	background-color: #FFFFFF !important;
+}
+.ui-btn-hidden {
+	opacity: 0;
+}
+.ui-btn-icon-notext {
+	-moz-box-sizing: content-box;
+	box-sizing: content-box;
+}
+.ui-btn-active {
+	color: #000;
+	text-shadow: none;
+}
+.ui-btn-up-e {
+	background-image: none !important;
+	background-color: #FCEDA7 !important;
+	text-shadow: none;
+}
+.pagenav .ui-btn-up-e {
+	color: #000;
+}
+div.ui-btn-hover-e.ui-btn-icon-notext,
+div.ui-btn-hover-e {
+	background-image: none;
+	background-color: #FCEDA7 !important;
+	border-color: #F7C942 !important;
+}
+div.ui-btn-icon-notext.ui-btn-up-e {
+	background-color: #FCEDA7 !important;
+	border-color: #FADB4E !important;
+}
+.ui-btn-down-e {
+	background: #FCEDA7;
+	text-shadow: none;
+	background-image: none
+}
+.ui-checkbox-on .ui-icon, .ui-radio-on .ui-icon {
+	background-color: transparent;
+}
+.ui-btn-up-b {
+	background-color: transparent;
+	background-image: none;
+	border: none;
+}
+
+.ui-li-link-alt .ui-btn .ui-icon {
+	margin-right: -12px;
+}
+.ui-btn-icon-right .ui-icon {
+	right: -2px;
+}
+.ui-collapsible-content {
+	margin: 1px -16px 0;
+	padding: 10px 16px;
+}
+.ui-btn {
+	margin-left: 0;
+	margin-right: 0;
+}
+.breadcrumb .ui-btn {
+	margin: 0;
+}
+.ui-btn-inner {
+	border-top: none;
+}
+
+.ui-btn-up-a {
+	background-image: none;
+	background-color: #2E3539;
+	border: none;
+	text-shadow: none;
+}
+.ui-btn-hover-e {
+	background-color: #FCEDA7 !important;
+	background-image: none;
+	text-shadow: none;
+}
+.ui-btn-hover-a {
+	background-image: none;
+	background-color: #505558;
+	border: none;
+	text-shadow: none;
+}
+.ui-body-e, .ui-dialog.ui-overlay-e {
+	background-color: #FCEDA7;
+	background-image: none;
+	text-shadow: none;
+}
+
+/* posts */
+.ui-bar-c {
+	background-color: #F2F2F2;
+	background-image: none;
+	border-top: solid 1px #E4E4E4;
+	border-bottom: solid 1px #E4E4E4;
+	border-right: none;
+	border-left: none;
+}
+ol#posts li div.postbody {
+	background-color: #FFF;
+	border-bottom: solid 1px #E4E4E4;
+}
+.posthead .ui-btn-up-c,
+.posthead .ui-btn-hover-c {
+	background-color: #FFF;
+}
+textarea.ui-input-text,
+textarea#message {
+	background-color: #FFF;
+	border: solid 1px #E4E4E4;
+}
+.ui-bar-d {
+	background-color: #2E3539;
+	background-image: none;
+	border: none;
+	color: #FFFFFF;
+	text-shadow: none;
+}
+.tablink.ui-btn-active {
+	color: #FFF;
+	background-color: #2E3539;
+}
+#searchnav .ui-btn-active.ui-btn.ui-btn-up-d,
+#searchnav .ui-btn-active.ui-btn.ui-btn-hover-d {
+	color: #FFF;
+	background-color: #2E3539;
+	background-image: none;
+	border: none;
+}
+#searchnav .ui-btn {
+	border: none;
+}
+.notifications_total {
+	background-color: #ff4b00 !important;
+	border: none;
+	color: #FFF;
+}
+.dismiss.ui-btn {
+	border: none;
+}
+.dismiss.ui-btn .ui-btn-inner {
+	padding: 0;
+}
+.ui-bar-e {
+	background-color: #2E3539;
+	background-image: none;
+	border: none;
+	color: #FFFFFF;
+	text-shadow: none;
+}
+
+
+/* articles */
+.cms_primarycontent .ui-btn-active {
+	background-image: none;
+	background-color: #43A6DF;
+	border: 1px solid #43A6DF;
+ 	color: #FFFFFF;	
+	text-shadow: none;
+}
+.cms_primarycontent .postbody {
+	background-color: #FFF;
+}
+.cms_primarycontent .article {
+	background-color: #FFF;
+	border: none;
+}
+
+
+/* blogs */
+#blognav .ui-btn-active.ui-btn.ui-btn-up-c,
+#blognav .ui-btn-active.ui-btn.ui-btn-hover-c {
+	color: #FFF;
+	background-color: #2E3539;
+	background-image: none;
+	border: none;
+}
+#blognav .ui-btn {
+	border: none;
+}
+.postbit, .blogentrybody {
+	background-color: #FFFFFF;
+	border-left: 0;
+	border-right: 0;
+	padding-bottom: 12px !important;
+}
+
+
+.ui-li-divider, .ui-li-static {
+	padding: 1.1em 10px !important;
+	text-transform: uppercase;
+}
+.ui-bar, .ui-body {
+	padding: 0.9em 10px;
+}
+h3.ui-body, h4.ui-body {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	padding-left: 0;
+}
+
+.ui-navbar-noicons li .ui-btn .ui-btn-inner, .ui-navbar-noicons .ui-navbar-toggle .ui-btn-inner {
+	padding-bottom: 1.2em;
+	padding-top: 1.2em;
+}
+.ui-field-contain {
+	border-bottom-width: 0;
+}
+
+
+/* links color */
+.ui-body-d .ui-link, .ui-bar-c .ui-link,
+.ui-body-d .ui-link:visited, .ui-bar-c .ui-link:visited {
+    color: #43A6DF;
+}
+.ui-body-d .ui-link:active {
+    color: #43A6DF;
+}
+.ui-body-d .ui-link:hover {
+    color: #43A6DF;
+}]]></template>
+	</templategroup>
+	<stylevardfns>
+	</stylevardfns>
+	<stylevars>
+		<stylevar name="imgdir_button" value="YToxOntzOjg6ImltYWdlZGlyIjtzOjMyOiJpbWFnZXMvbWV0cm9fbW9iaWxlL2JsdWUvYnV0dG9ucyI7fQ==" />
+		<stylevar name="imgdir_cms" value="YToxOntzOjg6ImltYWdlZGlyIjtzOjI4OiJpbWFnZXMvbWV0cm9fbW9iaWxlL2JsdWUvY21zIjt9" />
+		<stylevar name="imgdir_misc" value="YToxOntzOjg6ImltYWdlZGlyIjtzOjI5OiJpbWFnZXMvbWV0cm9fbW9iaWxlL2JsdWUvbWlzYyI7fQ==" />
+		<stylevar name="imgdir_mobile" value="YToxOntzOjg6ImltYWdlZGlyIjtzOjMxOiJpbWFnZXMvbWV0cm9fbW9iaWxlL2JsdWUvbW9iaWxlIjt9" />
+		<stylevar name="imgdir_searchresults" value="YToxOntzOjg6ImltYWdlZGlyIjtzOjM5OiJpbWFnZXMvbWV0cm9fbW9iaWxlL2JsdWUvc2VhcmNoX3Jlc3VsdHMiO30=" />
+		<stylevar name="imgdir_siteicons" value="YToxOntzOjg6ImltYWdlZGlyIjtzOjM1OiJpbWFnZXMvbWV0cm9fbW9iaWxlL2JsdWUvc2l0ZV9pY29ucyI7fQ==" />
+		<stylevar name="imgdir_statusicon" value="YToxOntzOjg6ImltYWdlZGlyIjtzOjM1OiJpbWFnZXMvbWV0cm9fbW9iaWxlL2JsdWUvc3RhdHVzaWNvbiI7fQ==" />
+		<stylevar name="titleimage" value="YToxOntzOjM6InVybCI7czo1MDoiaW1hZ2VzL21ldHJvX21vYmlsZS9ibHVlL21vYmlsZS92YnVsbGV0aW4tbG9nby5wbmciO30=" />
+	</stylevars>
+</style>
